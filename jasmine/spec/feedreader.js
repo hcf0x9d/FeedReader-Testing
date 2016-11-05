@@ -54,9 +54,7 @@ $(function() {
     describe('Initial Entries', function () {
 
         beforeEach(function (done) {
-            loadFeed(0, function (data) {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         // Check that we can get the content
@@ -67,10 +65,8 @@ $(function() {
 
         // Make sure we are returning feed links
         it('has more than one valid entry', function (done) {
-            var entry = $('.entry-link');
-
+            var entry = $('.feed .entry');
             expect(entry.length).toBeGreaterThan(0);
-            expect($(entry).attr('href')).toMatch(/^(http|https):\/\//);
             done();
         });
 
